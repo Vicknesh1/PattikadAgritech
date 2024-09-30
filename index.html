@@ -222,5 +222,25 @@ In addition to our consumer-centric offerings, we are committed to advancing the
         </div>
     </div>
 </footer>
+<script>
+  // Sticky Header
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
 
+  // Scroll-to-Top Button
+  const scrollToTopBtn = document.createElement('div');
+  scrollToTopBtn.classList.add('scroll-to-top');
+  scrollToTopBtn.innerHTML = '↑';
+  document.body.appendChild(scrollToTopBtn);
+
+  window.addEventListener('scroll', () => {
+    scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
     
