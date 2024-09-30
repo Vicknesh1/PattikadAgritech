@@ -182,3 +182,188 @@ footer a:hover::after {
         transition: none !important;
     }
 }
+/* Existing CSS remains unchanged */
+
+/* Additional CSS for agricultural background and animations */
+
+/* Animated Background Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #f0f4f0;
+    background-image: 
+        linear-gradient(90deg, #e6f0e6 2px, transparent 2px),
+        linear-gradient(#e6f0e6 2px, transparent 2px);
+    background-size: 50px 50px;
+    animation: backgroundScroll 20s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes backgroundScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+/* Agriculture-themed Section Backgrounds */
+#home {
+    background-image: url('/api/placeholder/1200/800');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(34, 197, 94, 0.9), rgba(21, 128, 61, 0.9));
+}
+
+#home .container {
+    position: relative;
+    z-index: 1;
+}
+
+#features {
+    background-image: url('/api/placeholder/1200/800');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#features .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animated Plant Growth Icon */
+.plant-growth {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.plant-growth::before {
+    content: '🌱';
+    font-size: 40px;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: plantGrowth 3s ease-out infinite;
+}
+
+@keyframes plantGrowth {
+    0% { bottom: -40px; font-size: 40px; }
+    100% { bottom: 5px; font-size: 50px; }
+}
+
+/* Animated Weather Icon */
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.weather-icon::before {
+    content: '☀️';
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+    animation: weatherCycle 10s linear infinite;
+}
+
+@keyframes weatherCycle {
+    0%, 100% { content: '☀️'; left: -40px; }
+    25% { content: '☀️'; left: 50%; transform: translate(-50%, -50%); }
+    50% { content: '🌧️'; left: 50%; transform: translate(-50%, -50%); }
+    75% { content: '🌧️'; left: 140px; }
+}
+
+/* Tractor Animation */
+.tractor {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.tractor::before {
+    content: '🚜';
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+    animation: tractorMove 20s linear infinite;
+}
+
+@keyframes tractorMove {
+    0% { left: -50px; }
+    100% { left: calc(100% + 50px); }
+}
+
+/* Apply these new elements to your HTML structure */
+.feature-card::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+}
+
+.feature-card:nth-child(1)::before {
+    content: '🌱';
+    font-size: 40px;
+}
+
+.feature-card:nth-child(2)::before {
+    content: '🚜';
+    font-size: 40px;
+}
+
+.feature-card:nth-child(3)::before {
+    content: '📊';
+    font-size: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #home, #features {
+        background-attachment: scroll;
+    }
+    
+    .tractor {
+        height: 40px;
+    }
+    
+    .tractor::before {
+        font-size: 30px;
+    }
+}
